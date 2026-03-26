@@ -89,3 +89,24 @@ int main(){
 	return 0;
 	
 }
+
+
+
+
+int getMAx(int *array,int size){
+	int m,i;
+	m=0;
+	for(i=0;i<size;i++){
+		if(m<array[i])
+		m=array[i];
+
+	}return m;
+}
+#include<iostream>
+using namespace std;
+int main(){
+	int A[5]={1,2,3,4,5},m;
+	m=sizeof (A)/sizeof(A[0]);
+cout<<getMAx(A,m)<<endl;
+	return 0;
+}

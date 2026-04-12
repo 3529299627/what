@@ -1,0 +1,106 @@
+#include<iostream>
+using namespace std;
+wclass TestClass{
+	public:
+		TestClass(int a){
+			aa=a;
+			cout<<aa<<"Desturcted!\n";
+		}
+		~TestClass(){
+			cout<<aa<<"Desturcted!\n";	
+		}
+
+private:
+	int aa;};
+	TestClass AA(3);
+	int main(){
+		cout<<"In MainFuction."<<endl;
+		TestClass BB(5);
+		return 0;
+		
+		
+	}
+
+
+
+
+#include<iostream>
+using namespace std;
+class TestClass{
+	public:
+		TestClass(){
+		
+			cout<<"Cesturcted!\n";
+		}
+		~TestClass(){
+			cout<<"Desturcted!\n";	
+		}
+
+};
+	
+	
+	int main(){
+		TestClass t1;
+		TestClass*p;
+		p=new TestClass;
+		delete p;
+		return 0;
+		
+		
+	}
+
+
+#include<iostream>
+using namespace std;
+class TestClass{
+	public:
+		TestClass(){
+		
+			cout<<"Cesturcted!\n";
+			value=10;
+			
+		}
+		~TestClass(){
+			cout<<"Desturcted!\n";	};
+			
+			void setValue(int newValue){value=newValue;}
+			int getValue(){return value ;}
+		
+		private:
+			int value;
+			
+
+};
+	
+	
+	int main(){
+		TestClass t1;
+		cout<<t1.getValue()<<endl;
+		TestClass &rt1=t1;
+		rt1.setValue(20);
+		cout<<t1.getValue()<<endl;
+		TestClass*pt=&t1;
+		pt->setValue(30);
+		cout<<t1.getValue()<<endl;
+		return 0;
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+

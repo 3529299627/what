@@ -1,0 +1,72 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+class Complex{
+	public:
+	Complex():real(0),image(0){}
+	Complex(double r):real(r),image(0){}
+	Complex(double r,double i):real(r),image(i){}
+	Complex(const Complex&c){real=c.real;image=c.image;}
+	~Complex(){}
+	void setValue(double r,double i){real=r,image=i;}
+	double getReal()const{return real;}
+	double	getImage()const{return image;}
+	double getDistance()const{return sqrt(real*real+image+image);}
+	void output()const{
+		cout<<real<<"+"<<image<<"i"<<endl;
+	}
+	Complex operator+(const Complex&f)const;
+	Complex operator*(const Complex&f)const;
+	Complex &operator+=(const Complex&f);
+	Complex &operator*=(const Complex&f);
+	Complex &operator++();
+	Complex operator++(int);	
+			private:
+		double real;
+		double image;
+			
+};
+
+Complex Complex::operator+(const Complex& f) const{double r=real+f.real;
+double i=image+f.image;return Complex(r,i);}
+Complex	Complex ::operator*(const Complex& f)const{double r=real*f.real-image*f.image;double i=real*f.image+image*f.real;return Complex(r,i);}
+Complex	&Complex ::operator+=(const Complex& f){real+=f.real;image+=f.image;return *this;}
+Complex	&Complex ::operator*=(const Complex& f){double oldreal=real;double oldimage=image;real=oldreal*f.real-oldimage-f.image;
+image=oldimage*f.real+oldreal*f.image;return *this;}
+Complex	&Complex ::operator++(){real+=1;return*this;}
+Complex	Complex ::operator++(int){Complex temp =*this;real+=1;return temp;}
+
+int main()
+{
+	Complex a(1,2);
+	Complex b(3,4);
+	cout<<"测试加法"<<endl;
+	Complex c=a+b;//测试加法
+	c.output();
+	 cout<<"TEST MUTIPLICATION"<<endl;
+	 Complex d=a*b;
+	 d.output();
+	 cout<<"TEST +="<<endl;
+	a += b;
+	a.output();
+	cout<<"TEST *="<<endl;
+	a*=b;
+	a.output();
+	cout<<"TEST++"<<endl;
+	Complex e=a++;
+	e.output();
+	a.output();
+	
+	cout<<"TEST++int"<<endl;
+	++a;
+	a.output();
+	return 0;
+}
+
+
+
+
+ 
+
+
+
